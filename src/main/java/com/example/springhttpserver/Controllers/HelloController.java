@@ -28,4 +28,10 @@ public class HelloController {
     {
 //        return logic.GetSomethingFromData();
     }
+
+    @RequestMapping(value = "//{userId}", method = RequestMethod.GET)
+    public String SayHello(@RequestParam String userId)
+    {
+        return "Hello " + userId;
+    }
 }

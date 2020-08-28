@@ -1,6 +1,7 @@
 package com.example.springhttpserver.Services;
 
 import com.example.springhttpserver.DataAccess.HelloDataAccess;
+import com.example.springhttpserver.Models.HelloData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class HelloService implements IHelloService {
         return "Hello welcome to the test.";
     }
 
-    public String GetUserData(String userId) {
-        return dataAccess.Data1();
+    public HelloData GetUserData(String userId) {
+        return dataAccess.GetData(userId);
     }
 }

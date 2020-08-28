@@ -25,7 +25,6 @@ public class HelloControllerTests {
     public void SetupMocks()
     {
 //        HelloDataAccess da = mock(HelloDataAccess.class);
-        ApplicationContext =
     }
 
     private String baseUrl() { return "http://localhost:" + port + "/"; }
