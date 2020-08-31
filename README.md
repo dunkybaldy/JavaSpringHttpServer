@@ -11,5 +11,6 @@ SpringBoot and Java Http server
 ##### Information:
 * https://www.dariawan.com/tutorials/spring/documenting-spring-boot-rest-api-swagger/
 * https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api/
+* https://blog.frankel.ch/travis-ci-tutorial-for-java-projects/
 
 

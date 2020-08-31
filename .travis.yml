@@ -1,7 +1,8 @@
 language: java
 jdk:
   - openjdk14
-
-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-
-mvn test -B
+install: true
+script: ./mvnw clean install
+cache:
+  directories:
+    - $HOME/.m2
