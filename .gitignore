@@ -27,3 +27,6 @@ hs_err_pid*
 target\*
 .idea\*
 
+/target/surefire-reports/*.txt
+/target/*.jar.original
+/target/surefire-reports/*.xml
