@@ -1,7 +1,7 @@
-package com.example.springhttpserver.TestDataAccess;
+package com.springhttpserver.TestDataAccess;
 
-import com.example.springhttpserver.DataAccess.IHelloDataAccess;
-import com.example.springhttpserver.Models.HelloData;
+import com.springhttpserver.DataAccess.IHelloDataAccess;
+import com.springhttpserver.Models.HelloData;
 
 import java.util.HashMap;
 import java.util.Map;

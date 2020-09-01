@@ -1,7 +1,7 @@
-package com.example.springhttpserver;
+package com.springhttpserver;
 
-import com.example.springhttpserver.Controllers.HelloController;
-import com.example.springhttpserver.Services.IHelloService;
+import com.springhttpserver.Controllers.HelloController;
+import com.springhttpserver.Services.IHelloService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.example.springhttpserver.Controllers;
+package com.springhttpserver.Controllers;
 
-import com.example.springhttpserver.Services.IHelloService;
+import com.springhttpserver.Services.IHelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

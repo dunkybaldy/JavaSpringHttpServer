@@ -1,6 +1,6 @@
-package com.example.springhttpserver.DataAccess;
+package com.springhttpserver.DataAccess;
 
-import com.example.springhttpserver.Models.HelloData;
+import com.springhttpserver.Models.HelloData;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

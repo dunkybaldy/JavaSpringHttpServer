@@ -1,7 +1,7 @@
-package com.example.springhttpserver.Services;
+package com.springhttpserver.Services;
 
-import com.example.springhttpserver.DataAccess.HelloDataAccess;
-import com.example.springhttpserver.Models.HelloData;
+import com.springhttpserver.DataAccess.HelloDataAccess;
+import com.springhttpserver.Models.HelloData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

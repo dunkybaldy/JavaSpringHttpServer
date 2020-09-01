@@ -1,6 +1,6 @@
-package com.example.springhttpserver.Services;
+package com.springhttpserver.Services;
 
-import com.example.springhttpserver.Models.HelloData;
+import com.springhttpserver.Models.HelloData;
 
 public interface IHelloService {
     String GetGreetingMessage();
