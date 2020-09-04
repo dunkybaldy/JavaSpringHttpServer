@@ -1,7 +1,7 @@
 package com.springhttpserver;
 
-import com.springhttpserver.Controllers.HelloController;
-import com.springhttpserver.Services.IHelloService;
+import com.springhttpserver.Controllers.UserProfileController;
+import com.springhttpserver.Services.IUserProfileService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,11 +17,11 @@ public class SpringHttpServerApplicationTests {
 	@Test
 	void contextLoads()
 	{
-		HelloController helloController = context.getBean(HelloController.class);
-		assertThat(helloController).isNotNull();
-		assertThat(context.isSingleton("helloController")).isTrue();
+		UserProfileController userProfileController = context.getBean(UserProfileController.class);
+		assertThat(userProfileController).isNotNull();
+		assertThat(context.isSingleton("userProfileController")).isTrue();
 
-		IHelloService helloService = context.getBean(IHelloService.class);
+		IUserProfileService helloService = context.getBean(IUserProfileService.class);
 		assertThat(helloService).isNotNull();
 		assertThat(context.isSingleton("helloService")).isTrue();
 	}

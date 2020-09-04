@@ -12,7 +12,8 @@ aws_database:
    "admin-Duncan"
  rds_password:
    "pH959&Fhx2*lP1nT"
-jdbc:
+ max_connections:
+   10
+mysql:
   driver:
-    mysql:
-      "com.mysql.jdbc.Driver"
+    "com.mysql.jdbc.Driver"

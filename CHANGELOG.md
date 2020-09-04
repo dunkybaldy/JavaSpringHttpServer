@@ -1,3 +1,9 @@
+#### 04-09-20
+* More app settings
+* Starting with connection to rds using annotations on objects using ORM
+* improve API and figure out how to add validation (@valid)
+* Rename Hello objects to UserProfile
+
 #### 01-09-20
 * Application properties using .yml file
 * More work on connecting to database

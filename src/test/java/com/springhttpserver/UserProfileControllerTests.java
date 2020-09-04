@@ -1,5 +1,6 @@
 package com.springhttpserver;
 
+import com.springhttpserver.Models.UserProfile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerTests {
+public class UserProfileControllerTests
+{
     @LocalServerPort
     private int port;
 
@@ -21,17 +23,21 @@ public class HelloControllerTests {
     @BeforeEach
     public void SetupMocks()
     {
-//        HelloDataAccess da = mock(HelloDataAccess.class);
+//        UserProfileAccess da = mock(UserProfileAccess.class);
     }
 
     private String baseUrl() { return "http://localhost:" + port + "/"; }
+    private String
 
     @Test
-    public void HelloWorldTest()
+    public void CreateNewUserTest()
     {
-        String value = restTemplate.getForObject(
-                baseUrl() + "hello",
-                String.class);
-        assertThat(value).isNotEmpty();
+        UserProfile up = GetExampleUserProfile();
+        restTemplate.postForEntity()
+    }
+
+    public UserProfile GetExampleUserProfile()
+    {
+        return new UserProfile("Donk", 31);
     }
 }
