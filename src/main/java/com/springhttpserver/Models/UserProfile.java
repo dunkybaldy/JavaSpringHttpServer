@@ -1,32 +1,27 @@
 package com.springhttpserver.Models;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
-
+@Entity
 public class UserProfile {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private String Id; // GUID
+    @NotBlank
     private String Name;
+    @NotBlank
     private int Age;
 
     public UserProfile()
     {
-        SetId();
+
     }
 
-    public UserProfile(String name, int age)
-    {
-        SetId();
-        SetName(name);
-        SetAge(age);
-    }
-
-    public void SetId()
-    {
-        if (Id != null) {
-            return;
-        }
-        Id = UUID.randomUUID().toString();
-    }
+    public void SetId(String id) { this.Id = id; }
 
     public String GetId()
     {

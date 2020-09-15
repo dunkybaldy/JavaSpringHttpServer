@@ -10,26 +10,25 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 public class UserProfileController {
+    @Autowired
     private IUserProfileService _service;
 
-    @Autowired
-    public UserProfileController(IUserProfileService service) {
-        _service = service;
+    public UserProfileController() {
     }
 
-    @RequestMapping(value = "/get/{userId}", method = RequestMethod.GET)
-    public UserProfile GetUserProfile(@PathVariable("userId") String userId)
+    @GetMapping(value = "/get/{userId}", produces = "application/json")
+    public ResponseEntity<UserProfile> GetUserProfile(@PathVariable("userId") String userId)
     {
         try
         {
-            return _service.GetUserProfile(userId);
+            return ResponseEntity.ok(_service.GetUserProfile(userId));
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw ex;
+            return ResponseEntity.notFound().build();
         }
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping(value = "/create", consumes = "application/json", produces = "application/json")
     public ResponseEntity<UserProfile> CreateNewUserProfile(@RequestBody UserProfile userProfile)
     {
         try
@@ -38,20 +37,34 @@ public class UserProfileController {
             return ResponseEntity.ok(newUserProfile);
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw ex;
+            return ResponseEntity.noContent().build();
         }
     }
 
-    @RequestMapping(value = "/delete/{userId}", method = RequestMethod.DELETE)
+    @PostMapping(value = "/update/{userId}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<UserProfile> UpdateUserProfile(@PathVariable("userId") String userId, @RequestBody UserProfile userProfile)
+    {
+        try
+        {
+            UserProfile newUserProfile = _service.UpdateUserProfile(userId, userProfile);
+            return ResponseEntity.ok(newUserProfile);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @DeleteMapping(value = "/delete/{userId}")
     public ResponseEntity CreateNewUserProfile(@PathVariable("userId") String userId)
     {
         try
         {
-            if (_service.DeleteUserProfile(userId) == false);
+            _service.DeleteUserProfile(userId);
+            return ResponseEntity.ok(HttpStatus.OK);
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw ex;
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(HttpStatus.OK);
+
     }
 }

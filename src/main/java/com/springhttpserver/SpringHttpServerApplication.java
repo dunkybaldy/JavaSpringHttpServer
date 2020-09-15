@@ -15,6 +15,7 @@ public class SpringHttpServerApplication {
 		SpringApplication app = new SpringApplication(SpringHttpServerApplication.class);
 //		app.setApplicationContextClass(context);
 //		app.setDefaultProperties(Collections.singletonMap("server.port", "8083"));
+
 		app.run(args);
 	}
 

@@ -1,32 +1,50 @@
 package com.springhttpserver.Services;
 
-import com.springhttpserver.DataAccess.UserProfileAccess;
+import com.springhttpserver.Database.DataAccess.IUserRepository;
 import com.springhttpserver.Models.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class UserProfileService implements IUserProfileService {
-    private UserProfileAccess dataAccess;
-
     @Autowired
-    public UserProfileService(UserProfileAccess userProfileAccess)
+    private IUserRepository userRepository;
+
+    public UserProfileService()
     {
-        dataAccess = userProfileAccess;
+
     }
 
     public UserProfile GetUserProfile(String userId) {
-        return dataAccess.GetUserProfile(userId);
+        return userRepository.findById(userId).get();
     }
 
     @Override
-    public void CreateNewUserProfile(UserProfile userProfile) {
+    public UserProfile CreateNewUserProfile(UserProfile userProfile) {
         // validation checks?
-        dataAccess.CreateUserProfile(userProfile);
+        UserProfile up = userRepository.save(userProfile);
+
+        return GetUserProfile(up.GetId());
+    }
+
+    @Override
+    public UserProfile UpdateUserProfile(String userId, UserProfile userProfile) {
+        // validation checks?
+        UserProfile user = GetUserProfile(userId);
+        if (user.equals(userProfile))
+        {
+            return user;
+        }
+        user = userProfile;
+        UserProfile up2 = userRepository.save(user);
+
+        return GetUserProfile(up2.GetId());
     }
 
     @Override
     public void DeleteUserProfile(String userId) {
-        dataAccess.RemoveUserProfile(userId);
+        userRepository.deleteById(userId);
     }
 }

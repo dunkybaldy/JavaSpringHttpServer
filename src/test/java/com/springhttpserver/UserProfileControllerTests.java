@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
+import org.springframework.http.ResponseEntity;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserProfileControllerTests
@@ -23,21 +21,18 @@ public class UserProfileControllerTests
     @BeforeEach
     public void SetupMocks()
     {
-//        UserProfileAccess da = mock(UserProfileAccess.class);
+//        UserProfileDataAccess da = mock(UserProfileDataAccess.class);
     }
 
     private String baseUrl() { return "http://localhost:" + port + "/"; }
-    private String
+    private String GetUserProfileUrl(String userId) { return baseUrl() + "get/" + userId; }
+    private String CreateUserProfileUrl() { return baseUrl() + "create"; }
+    private String DeleteUserProfileUrl(String userId) { return baseUrl() + "delete/" + userId; }
 
     @Test
     public void CreateNewUserTest()
     {
-        UserProfile up = GetExampleUserProfile();
-        restTemplate.postForEntity()
-    }
-
-    public UserProfile GetExampleUserProfile()
-    {
-        return new UserProfile("Donk", 31);
+//        UserProfile up = GetExampleUserProfile();
+//        ResponseEntity re = restTemplate.postForEntity(CreateUserProfileUrl(), up, UserProfile.class);
     }
 }
