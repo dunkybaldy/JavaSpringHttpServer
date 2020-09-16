@@ -26,7 +26,7 @@ public class UserProfileService implements IUserProfileService {
         // validation checks?
         UserProfile up = userRepository.save(userProfile);
 
-        return GetUserProfile(up.GetId());
+        return GetUserProfile(up.getid());
     }
 
     @Override
@@ -37,10 +37,9 @@ public class UserProfileService implements IUserProfileService {
         {
             return user;
         }
-        user = userProfile;
-        UserProfile up2 = userRepository.save(user);
+        UserProfile up2 = userRepository.save(userProfile);
 
-        return GetUserProfile(up2.GetId());
+        return GetUserProfile(up2.getid());
     }
 
     @Override

@@ -28,7 +28,7 @@ public class UserProfileController {
         }
     }
 
-    @PostMapping(value = "/create", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/create",consumes = "application/json", produces = "application/json")
     public ResponseEntity<UserProfile> CreateNewUserProfile(@RequestBody UserProfile userProfile)
     {
         try
@@ -41,7 +41,7 @@ public class UserProfileController {
         }
     }
 
-    @PostMapping(value = "/update/{userId}", consumes = "application/json", produces = "application/json")
+    @PutMapping(value = "/update/{userId}", consumes = "application/json", produces = "application/json")
     public ResponseEntity<UserProfile> UpdateUserProfile(@PathVariable("userId") String userId, @RequestBody UserProfile userProfile)
     {
         try

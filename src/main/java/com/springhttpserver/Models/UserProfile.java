@@ -1,50 +1,58 @@
 package com.springhttpserver.Models;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 public class UserProfile {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private String Id; // GUID
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String id; // GUID
     @NotBlank
-    private String Name;
+    private String name;
     @NotBlank
-    private int Age;
+    private int age;
 
     public UserProfile()
     {
 
     }
 
-    public void SetId(String id) { this.Id = id; }
-
-    public String GetId()
+    public UserProfile(String name, int age)
     {
-        return this.Id;
+        setname(name);
+        setage(age);
     }
 
-    public void SetName(String name)
+    // setter getter names required: setvariableName ... getvariableName
+    public void setid(String id) { this.id = id; }
+
+    public String getid()
     {
-        this.Name = name;
+        return this.id;
     }
 
-    public String GetName()
+    public void setname(String name)
     {
-        return this.Name;
+        this.name = name;
     }
 
-    public void SetAge(int age)
+    public String getname()
     {
-        this.Age = age;
+        return this.name;
     }
 
-    public int GetAge()
+    public void setage(int age)
     {
-        return this.Age;
+        this.age = age;
+    }
+
+    public int getage()
+    {
+        return this.age;
     }
 }

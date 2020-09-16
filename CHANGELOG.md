@@ -1,3 +1,11 @@
+#### 16-09-20
+* Test infrastructure
+    * Endpoint builder for easy creation of api endpoints
+    * Test class marked with @Transactional so that the db won't have to keep being refreshed
+* Fix post and put requests
+    * problem was Spring expects model classes to have a specific naming convention
+    * Json not lining up
+
 #### 15-09-20
 * Commit to using .yml for application properties
     * This was also causing database connection issue on startup
