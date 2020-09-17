@@ -9,6 +9,6 @@ cache:
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE db_example;'
-  - mysql -e 'CREATE USER 'springuser'@'%';'
-  - mysql -e 'GRANT ALL PRIVILEGES ON db_example.* To 'springuser'@'%' IDENTIFIED BY 'ThePassword';'
+  - mysql -e "CREATE DATABASE db_example;"
+  - mysql -e "CREATE USER 'springuser'@'%';"
+  - mysql -e "GRANT ALL PRIVILEGES ON db_example.* To 'springuser'@'%' IDENTIFIED BY 'ThePassword';"
