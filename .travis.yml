@@ -6,3 +6,7 @@ script: mvn clean install
 cache:
   directories:
     - $HOME/.m2
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE db_example; CREATE USER 'springuser'@'%'; GRANT ALL PRIVILEGES ON db_example.* To 'springuser'@'%' IDENTIFIED BY 'ThePassword';'
